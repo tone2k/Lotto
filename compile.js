@@ -11,6 +11,6 @@ const source = fs.readFileSync(inboxPath, 'utf8');
 //reads raw source code from our contract by creating source using fs module. 
 
 module.exports = solc.compile(source, 1).contracts[':Inbox'];
-//exports objects details (contracts property inbox)
+//exports objects details (contracts property inbox) for direct access.
 //return value will always be an object, top level contracts{ inbox...}
 //provides bytecode and interface (ABI) - list out all functions that can be called, arguements, return values, etc. 

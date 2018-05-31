@@ -13,14 +13,14 @@ class Car {
     park() {
         return 'stopped';
     }
-}
 
-drive() {
-    reutrn 'vroom';
+    drive() {
+        return 'vroom';
+    }
 }
 
 describe('Car', () =>{
-    it('should park', =>{
+    it('should park', () =>{
         const car = new Car();
         assert.equal(car.park(), 'stopped');
     });
