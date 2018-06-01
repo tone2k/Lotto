@@ -22,11 +22,11 @@ describe('Lotto Contract', () =>{
         assert.ok(lotto.options.address);
     });
     it('allows an account to enter', async () =>{
-        await lottery.methods.enter().send({
+        await lotto.methods.enter().send({
             from: accounts[0],
             value: web3.utils.toWei('0.02', 'ether')
         });
-        const players = await lottery.methods.getPlayers().call({
+        const players = await lotto.methods.getPlayers().call({
             from: accounts[0]
         });
 
