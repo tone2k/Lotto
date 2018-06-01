@@ -33,4 +33,32 @@ describe('Lotto Contract', () =>{
         assert.equal(accounts[0], players[0]);
         assert.equal(1, players.length);
     });
+    it('allows mutiple accounts to enter', async () => {
+        await lotto.methods.enter().send({
+            from: accounts[0],
+            value: web3.utils.toWei('0.02', 'ether')
+        });
+        await lotto.methods.enter().send({
+            from: accounts[1],
+            value: web3.utils.toWei('0.02', 'ether')
+        });
+        await lotto.methods.enter().send({
+            from: accounts[3],
+            value: web3.utils.toWei('0.02', 'ether')
+        });
+        await lotto.methods.enter().send({
+            from: accounts[4],
+            value: web3.utils.toWei('0.02', 'ether')
+        });
+        const players = await lotto.methods.getPlayers().call({
+            from: accounts[0]
+        });
+
+        assert.equal(accounts[0], players[0]);
+        assert.equal(accounts[1], players[1]);
+        assert.equal(accounts[2], players[2]);
+        assert.equal(accounts[3], players[3]);
+        assert.equal(accounts[4], players[4]);
+        assert.equal(5, players.length);
+    });
 });
