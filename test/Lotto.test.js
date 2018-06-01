@@ -4,7 +4,7 @@ const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
 //ABI and Bytecode Object
-const {interface, bytecode} = require('.../compile');
+const {interface, bytecode} = require('../compile');
 
 let lotto;
 let accounts;
