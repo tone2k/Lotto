@@ -24,7 +24,7 @@ const deploy = async () =>{
         //contains objects byte code and any inital arguments to pass to the contract. 
         .deploy({ data: '0x' + bytecode})
         .send({gas: '1000000', from: accounts[0]});
-
+    console.log(interface);
     console.log('Contract deployed to ', result.options.address);
 };
 
